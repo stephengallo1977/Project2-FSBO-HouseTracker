@@ -1,0 +1,53 @@
+{{!-- Handlebars listing page --}}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="jumbotron">
+                <h1>Listings</h1>
+                {{!-- This adds the submitted house to our listing page  --}}
+                <h2>Available</h2>
+                <ul>
+                    {{#each house}}
+                    {{#unless favorite}}
+                    {{#if isAvailable}}
+                    <li>
+                        {{> listing/listing-block}}
+                    </li>
+                    {{/if}}
+                    {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="jumbotron">
+                <h1>Favorites</h1>
+                {{!-- This adds the submitted house to our listing page  --}}
+                <h2>Available</h2>
+                <ul>
+                    {{#each house}}
+                    {{#if isAvailable}}
+                    {{#if favorite}}
+                    <li>
+                        {{> listing/listing-block}}
+                    </li>
+                    {{/if}}
+                    {{/if}}
+                    {{/each}}
+                </ul>
+                <h2>Sold</h2>
+                <ul>
+                    {{#each house}}
+                    {{#if favorite}}
+                    {{#unless isAvailable}}
+                    <li>
+                        {{> listing/listing-block}}
+                    </li>
+                    {{/unless}}
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

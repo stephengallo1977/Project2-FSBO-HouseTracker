@@ -1,0 +1,22 @@
+{{!-- Handlebars top listing container --}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            {{> about/about-description}}
+        </div>
+        <div class="col-6">
+            <div class="jumbotron">
+                Top listings
+                <ul>
+                    {{#each house}}
+                    <li>
+                        {{> listing/listing-block}}
+                    </li>
+                    {{/each}}
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>

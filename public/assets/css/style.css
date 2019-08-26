@@ -1,0 +1,17 @@
+
+
+body {
+  padding: 10px;
+  margin: 12px;
+  background: aqua;
+  background-image: url("../images/background.jpeg");
+  
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

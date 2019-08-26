@@ -1,0 +1,35 @@
+{{!-- Handlebars listing page --}}
+{{!-- Handlebars allows for template reuse through partials. Partials are normal Handlebars templates that may be called directly by other templates. --}}
+<div>
+    <h3>{{address}}</h3>
+    <h5>${{price}}.00</h5>
+    <hr />
+    <p>{{description}}</p>
+    Beds: {{beds}} <br />
+    Bathrooms: {{baths}} <br />
+
+    {{#if isAvailable}}
+    <form action="/api/sellhouse" method="POST">
+        <input type="text" name="id" style="display: none;" value={{id}} />
+        <input type="submit" value="Buy House"  class="btn btn-success"/>
+    </form>
+    {{/if}}
+    <form action="/api/removehouse" method="POST">
+        <input type="text" name="id" style="display: none;" value={{id}} />
+        <input type="submit" value="Delete House"  class="btn btn-danger"/>
+    </form>
+
+    {{#if favorite}}
+    {{#if isAvailable}}
+    <form action="/api/dropfav" method="POST">
+        <input type="text" name="id" style="display: none;" value={{id}} />
+        <input type="submit" value="Remove Fav" class="btn btn-warning" />
+    </form>
+    {{/if}}
+    {{else}}
+    <form action="/api/addfav" method="POST">
+        <input type="text" name="id" style="display: none;" value={{id}} />
+        <input type="submit" value="Save House"  class="btn btn-light"/>
+    </form>
+    {{/if}}
+</div>
